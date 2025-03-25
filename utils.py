@@ -80,3 +80,21 @@ def cut_boxes_from_image(boxes, image_tensor):
         cropped_images.append(cropped_image)
 
     return cropped_images
+
+def draw_boxes(image, boxes, color=(0, 255, 0), thickness=2, window_name="Image"):
+    """
+    在影像上畫出 bounding boxes
+    :param image: 原始影像
+    :param boxes: bounding box 座標 [[x1, y1, x2, y2], ...]
+    :param color: 框線顏色
+    :param thickness: 框線粗細
+    :param window_name: 顯示視窗名稱
+    """
+    image_with_boxes = image.copy()
+    for box in boxes:
+        x1, y1, x2, y2 = map(int, box)  # 轉為整數
+        cv2.rectangle(image_with_boxes, (x1, y1), (x2, y2), color, thickness)
+
+    cv2.imshow(window_name, image_with_boxes)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
