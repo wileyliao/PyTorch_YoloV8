@@ -1,4 +1,6 @@
 import torch
+import cv2
+
 def detect_specific_objects(model, image):
     """
     使用YOLO模型檢測圖像中特定類別的物體。

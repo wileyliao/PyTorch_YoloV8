@@ -1,10 +1,8 @@
 from ultralytics import YOLO
 import multiprocessing
+import torch
 
-def class_check():
-    model = YOLO('model_v1.pt')
-    for class_id, class_name in model.names.items():
-        print(f"ID: {class_id}, Class: {class_name}")
+
 
 def model_train():
     # model storage path = my_project/test_run_01
